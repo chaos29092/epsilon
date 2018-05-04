@@ -22,9 +22,12 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
+
     public function boot()
     {
         view()->share('product_categories',ProductCategory::orderBy('order', 'asc')->get());
+        view()->share('avg_price',Product::avg('price'));
 
         Page::observe(PageObserver::class);
 //        Setting::observe(SettingObserver::class);

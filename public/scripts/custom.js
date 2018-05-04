@@ -894,7 +894,7 @@ $(document).ready(function () {
             }); 
         }
       };
-      var smoothState = $('#page-transitions').smoothState(options).data('smoothState');
+      // var smoothState = $('#page-transitions').smoothState(options).data('smoothState');
     });
     
 });

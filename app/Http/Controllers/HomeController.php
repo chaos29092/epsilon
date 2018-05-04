@@ -70,7 +70,7 @@ class HomeController extends Controller
     public function product_category($slug)
     {
         $product_category = ProductCategory::whereSlug($slug)->firstOrFail();
-        $products = Product::where('product_category_id',$product_category->id)->orderBy('featured', 'desc')->orderBy('updated_at', 'desc')->select('name','excerpt','slug','image','product_code','featured')->get();
+        $products = Product::where('product_category_id',$product_category->id)->orderBy('featured', 'desc')->orderBy('updated_at', 'desc')->select('name','product_category_id','excerpt','slug','image','product_code','price','featured')->get();
 
         return view('products',compact('product_category','products'));
     }
@@ -78,7 +78,7 @@ class HomeController extends Controller
     public function product($slug)
     {
         $product = product_cache($slug);
-        $related_products = Product::where('product_category_id',$product->product_category_id)->where('id', '<>', $product->id)->orderBy('featured', 'desc')->orderBy('order', 'asc')->select('name','slug','image','order','featured')->take(6)->get();
+        $related_products = Product::where('product_category_id',$product->product_category_id)->where('id', '<>', $product->id)->orderBy('featured', 'desc')->orderBy('order', 'asc')->select('name','product_category_id','slug','image','order','featured','product_code','price')->take(6)->get();
 
         return view('product',compact('product','related_products'));
     }

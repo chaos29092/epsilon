@@ -33,7 +33,35 @@
             'clientId': clientId
         }];
     </script>
-
+    @if(isset($related_products))
+        <script>
+            product_name = '{{$product->name}}';
+            product_id = '{{$product->product_code}}';
+            product_price = '{{$product->price}}';
+            product_category = '{{$product->product_category_id}}';
+        </script>
+    @elseif(isset($products))
+        <script>
+            product_name = 'Category '+'{{$product_category->name}}';
+            product_id = '{{$product_category->slug}}';
+            product_price = '{{$products->avg('price')}}';
+            product_category = '{{$product_category->name}}';
+        </script>
+    @elseif(isset($featured_products))
+        <script>
+            product_name = 'All';
+            product_id = 'All';
+            product_price = '{{$avg_price}}';
+            product_category = 'All';
+        </script>
+    @else
+        <script>
+            product_name = 'All';
+            product_id = 'All';
+            product_price = '{{$avg_price}}';
+            product_category = 'All';
+        </script>
+    @endif
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -41,6 +69,8 @@
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-PN982GC');</script>
     <!-- End Google Tag Manager -->
+
+    @yield('dataLayer_push')
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
@@ -75,7 +105,25 @@
             <em class="line-2"></em>
             <em class="line-3"></em>
         </a>
-        <a href="mailto:{{setting('contact.email')}}" class="header-icon header-icon-4"><i class="ion-ios-email-outline"></i></a>
+        <a href="mailto:{{setting('contact.email')}}" onclick="(function (){
+                            dataLayer.push({
+                                'event': 'productPurchase',
+                                'ecommerce': {
+                                'purchase': {
+                                'actionField': {
+                                'id': uuidv4(),
+                                'affiliation': 'Header Email Click'
+                            },
+                            'products': [{
+                                'name': product_name,
+                                'id': product_id,
+                                'price': product_price,
+                                'category': product_category,
+                                'quantity': 1
+                                }]
+                            }}
+                            });
+                            })()" class="header-icon header-icon-4"><i class="ion-ios-email-outline"></i></a>
     </div>
 
     <!-- Main Small Icon Sidebar -->
@@ -107,10 +155,45 @@
     <div class="submenu submenu-light" id="sub10">
         <div class="submenu-scroll">
             <a class="close-sidebar" href="#"><i class="ion-ios-close-empty"></i><em>Close</em></a>
-            <a href="mailto:{{setting('contact.email')}}"><i class="ion-ios-email-outline"></i><em>Mail Us</em></a>
             <a href="/contact_us"><i class="ion-ios-compose-outline"></i><em>Contact Form</em></a>
-            <a href="https://api.whatsapp.com/send?phone={{setting('contact.phone')}}"><i class="ion-social-whatsapp-outline"></i><em>Whatsapp</em></a>
-            <a class="default-link" href="https://m.me/{{setting('contact.facebook_id')}}"><i class="ion-social-facebook-outline"></i><em>Messenger</em></a>
+            <a href="mailto:{{setting('contact.email')}}" onclick="(function (){
+                            dataLayer.push({
+                                'event': 'productPurchase',
+                                'ecommerce': {
+                                'purchase': {
+                                'actionField': {
+                                'id': uuidv4(),
+                                'affiliation': 'Menu Email'
+                            },
+                            'products': [{
+                                'name': product_name,
+                                'id': product_id,
+                                'price': product_price,
+                                'category': product_category,
+                                'quantity': 1
+                                }]
+                            }}
+                            });
+                            })()"><i class="ion-ios-email-outline"></i><em>Mail Us</em></a>
+            <a href="https://api.whatsapp.com/send?phone={{setting('contact.phone')}}" onclick="(function (){
+                            dataLayer.push({
+                                'event': 'productPurchase',
+                                'ecommerce': {
+                                'purchase': {
+                                'actionField': {
+                                'id': uuidv4(),
+                                'affiliation': 'Menu Whatsapp'
+                            },
+                            'products': [{
+                                'name': product_name,
+                                'id': product_id,
+                                'price': product_price,
+                                'category': product_category,
+                                'quantity': 1
+                                }]
+                            }}
+                            });
+                            })()"><i class="ion-social-whatsapp-outline"></i><em>Whatsapp</em></a>
             <a class="close-sidebar" href="#"><i class="ion-ios-close-empty"></i><em>Close</em></a>
         </div>
     </div>
@@ -144,9 +227,63 @@
                 </p>
                 <div class="footer-socials center-text">
                     <a href="https://m.me/{{setting('contact.facebook_id')}}" class="icon icon-round icon-ghost facebook-bg"><i class="ion-social-facebook"></i></a>
-                    <a href="tel:{{setting('contact.phone')}}" class="icon icon-ghost icon-round phone-color phone-bg"><i class="ion-ios-telephone"></i></a>
-                    <a href="mailto:{{setting('contact.email')}}" class="icon icon-ghost icon-round mail-color mail-bg"><i class="ion-android-mail"></i></a>
-                    <a href="https://api.whatsapp.com/send?phone={{setting('contact.phone')}}" class="icon icon-ghost icon-round whatsapp-color whatsapp-bg"><i class="ion-social-whatsapp"></i></a>
+                    <a href="tel:{{setting('contact.phone')}}" onclick="(function (){
+                            dataLayer.push({
+                                'event': 'productPurchase',
+                                'ecommerce': {
+                                'purchase': {
+                                'actionField': {
+                                'id': uuidv4(),
+                                'affiliation': 'Foot Phone Click'
+                            },
+                            'products': [{
+                                'name': product_name,
+                                'id': product_id,
+                                'price': product_price,
+                                'category': product_category,
+                                'quantity': 1
+                                }]
+                            }}
+                            });
+                            })()" class="icon icon-ghost icon-round phone-color phone-bg"><i class="ion-ios-telephone"></i></a>
+                    <a href="mailto:{{setting('contact.email')}}" onclick="(function (){
+                            dataLayer.push({
+                                'event': 'productPurchase',
+                                'ecommerce': {
+                                'purchase': {
+                                'actionField': {
+                                'id': uuidv4(),
+                                'affiliation': 'Foot Email Click'
+                            },
+                            'products': [{
+                                'name': product_name,
+                                'id': product_id,
+                                'price': product_price,
+                                'category': product_category,
+                                'quantity': 1
+                                }]
+                            }}
+                            });
+                            })()" class="icon icon-ghost icon-round mail-color mail-bg"><i class="ion-android-mail"></i></a>
+                    <a href="https://api.whatsapp.com/send?phone={{setting('contact.phone')}}" onclick="(function (){
+                            dataLayer.push({
+                                'event': 'productPurchase',
+                                'ecommerce': {
+                                'purchase': {
+                                'actionField': {
+                                'id': uuidv4(),
+                                'affiliation': 'Foot Whatsapp'
+                            },
+                            'products': [{
+                                'name': product_name,
+                                'id': product_id,
+                                'price': product_price,
+                                'category': product_category,
+                                'quantity': 1
+                                }]
+                            }}
+                            });
+                            })()" class="icon icon-ghost icon-round whatsapp-color whatsapp-bg"><i class="ion-social-whatsapp"></i></a>
                 </div>
                 <div class="decoration"></div>
                 <p class="copyright-text">{{setting('index.copyright')}}</p>

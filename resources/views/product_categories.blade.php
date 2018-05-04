@@ -16,6 +16,27 @@
 @endsection
 @section('meta_keywords',$page->meta_keywords)
 
+@section('dataLayer_push')
+    <script>
+        dataLayer.push({
+            'ecommerce': {
+                'impressions': [
+                        @foreach($featured_products as $featured_product)
+                            {
+                                'name': '{{$featured_product->name}}',
+                                'id': '{{$featured_product->product_code}}',
+                                'price': '{{$featured_product->price}}',
+                                'category': '{{$featured_product->product_category_id}}',
+                                'list': 'Hot Products',
+                                'position': {{$loop->iteration}}
+                            },
+                        @endforeach
+                    ]
+            }
+        });
+    </script>
+@endsection
+
 @section('content')
     <div class="content">
         <div class="container heading-style">
@@ -45,7 +66,24 @@
 
         <div class="store-item-list">
             @foreach($featured_products as $featured_product)
-            <a href="/product/{{$featured_product->slug}}">
+            <a href="/product/{{$featured_product->slug}}" onclick="(function (){
+                    dataLayer.push({
+                    'event': 'productClick',
+                    'ecommerce': {
+                    'click': {
+                    'actionField': {'list': 'Hot Products'},
+                    'products': [{
+                    'name': '{{$featured_product->name}}',
+                    'id': '{{$featured_product->product_code}}',
+                    'price': '{{$featured_product->price}}',
+                    'category': '{{$featured_product->product_category_id}}',
+                    'position': {{$loop->iteration}}
+                    }]}},
+                    'eventCallback': function() {
+                    document.location = '/product/{{$featured_product->slug}}'
+                    }
+                    });
+                    })()">
                 <img src="{{image_small(Voyager::image($featured_product->image))}}" alt="{{$featured_product->name}}">
                 <strong>{{title_case($featured_product->name)}}</strong>
                 <em>

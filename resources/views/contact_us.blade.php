@@ -50,14 +50,30 @@
                 {{--</p>--}}
             </div>
         </div>
+        <div class="decoration"></div>
 
         <div>
-            <a href="https://api.whatsapp.com/send?phone=8618538153651" class="button button-icon button-green button-round button-full button-xs no-bottom"><i class="ion-social-whatsapp"></i>Get Touch Through WhatsApp</a>
+            <a href="https://api.whatsapp.com/send?phone=8618538153651" onclick="(function (){
+                            dataLayer.push({
+                                'event': 'productPurchase',
+                                'ecommerce': {
+                                'purchase': {
+                                'actionField': {
+                                'id': uuidv4(),
+                                'affiliation': 'Contact Us Whatsapp'
+                            },
+                            'products': [{
+                                'name': product_name,
+                                'id': product_id,
+                                'price': product_price,
+                                'category': product_category,
+                                'quantity': 1
+                                }]
+                            }}
+                            });
+                            })()" class="button button-icon button-green button-round button-full button-xs no-bottom"><i class="ion-social-whatsapp"></i>Get Touch Through WhatsApp</a>
         </div>
         <div class="decoration"></div>
-        <div>
-            <a href="https://m.me/belislaser" class="button button-icon button-green button-round button-full button-xs no-bottom"><i class="ion-social-whatsapp"></i>Get Touch Through Messenger</a>
-        </div>
 
 
         <div class="decoration hide-if-responsive"></div>
