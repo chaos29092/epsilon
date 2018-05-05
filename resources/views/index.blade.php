@@ -85,6 +85,9 @@
                 <a href="/product_category/{{$product_category->slug}}"><img src="{{Voyager::image($product_category->image)}}" alt="{{$product_category->name}}"></a>
                 <strong>{{title_case($product_category->name)}}</strong>
             </div>
+                @if($loop->iteration%2 == 0)
+                    <div class="clear"></div>
+                @endif
             @endforeach
             <div class="clear"></div>
         </div>
