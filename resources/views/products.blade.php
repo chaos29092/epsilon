@@ -71,9 +71,6 @@
                     })()">
                 <img src="{{image_small(Voyager::image($product->image))}}" alt="{{$product->name}}">
                 <strong>{{title_case($product->name)}}</strong>
-                <em>
-                    {{$product->excerpt}}
-                </em>
             </a>
             @endforeach
         </div>
