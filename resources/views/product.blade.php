@@ -62,7 +62,7 @@
         </div>
     </div>
 
-    <div class="content full-bottom">
+    <div class="content product-content full-bottom">
         <div>
             <a href="https://api.whatsapp.com/send?phone=8618538153651&text=Hello, I want to know the price of {{$product->name}}" onclick="(function (){
                     dataLayer.push({
