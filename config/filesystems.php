@@ -61,6 +61,7 @@ return [
             'secret' => env('AWS_SECRET'),
             'region' => env('AWS_REGION'),
             'bucket' => env('AWS_BUCKET'),
+            'options' => ['CacheControl' => 'max-age=315360000'],
 //            'url' => env('CLOUD_FRONT_URL'),
         ],
 
