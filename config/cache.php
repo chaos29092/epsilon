@@ -86,6 +86,6 @@ return [
     |
     */
 
-    'prefix' => 'voyager',
+    'prefix' => env('APP_NAME', 'epsilon'),
 
 ];

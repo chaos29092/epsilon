@@ -32,9 +32,9 @@
                 <strong>{{$new->name}}</strong>
                 <em>{{$new->excerpt}}</em>
             </a>
+            <div class="decoration"></div>
             @endforeach
         </div>
-        <div class="decoration"></div>
         <a href="{{$news->nextPageUrl()}}" class="load-more-thumbs button button-full button-green">Next Page</a>
     </div>
 @endsection

@@ -21,6 +21,9 @@
         {{--<a href="pageapp-map.html" class="button button-red button-s button-full uppercase bold">FullScreen Map</a>--}}
     {{--</div>--}}
     <div class="content">
+        <h3 class="half-bottom">
+            {{$page->title}}
+        </h3>
 
         <div class="decoration hide-if-responsive"></div>
         <div class="one-half-responsive contact-information last-column">
