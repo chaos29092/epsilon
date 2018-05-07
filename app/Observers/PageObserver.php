@@ -9,13 +9,13 @@ class PageObserver
 {
     public function saved(Page $page)
     {
-        $cacheKey = 'page_'.$page->slug;
+        $cacheKey = 'page_'.$page->id;
         Cache::put($cacheKey,$page,43200);
     }
 
     public function deleted(Page $page)
     {
-        $cacheKey = 'page_'.$page->slug;
+        $cacheKey = 'page_'.$page->id;
         $cacheData = Cache::get($cacheKey);
         if($cacheData){
             Cache::forget($cacheKey);
