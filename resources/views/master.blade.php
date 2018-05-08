@@ -67,7 +67,7 @@
                 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-PN982GC');</script>
+        })(window,document,'script','dataLayer','GTM-P7L2WXC');</script>
     <!-- End Google Tag Manager -->
 
     @yield('dataLayer_push')
@@ -105,14 +105,14 @@
             <em class="line-2"></em>
             <em class="line-3"></em>
         </a>
-        <a href="mailto:{{setting('contact.email')}}" onclick="(function (){
+        <a href="https://api.whatsapp.com/send?phone={{setting('contact.phone')}}&text={{__('main.need_category')}}" onclick="(function (){
                             dataLayer.push({
                                 'event': 'productPurchase',
                                 'ecommerce': {
                                 'purchase': {
                                 'actionField': {
                                 'id': uuidv4(),
-                                'affiliation': 'Header Email Click'
+                                'affiliation': 'Header Whatsapp Click'
                             },
                             'products': [{
                                 'name': product_name,
@@ -123,39 +123,39 @@
                                 }]
                             }}
                             });
-                            })()" class="header-icon header-icon-4"><i class="ion-ios-email-outline"></i></a>
+                            })()" class="header-icon header-icon-4"><i class="ion-social-whatsapp-outline"></i></a>
     </div>
 
     <!-- Main Small Icon Sidebar -->
     <div class="sidebar-menu sidebar-light">
         <div class="sidebar-menu-scroll">
-            <a  href="/"><i class="ion-ios-home-outline"></i><em>Home</em></a>
-            <a data-submenus="sub1" href="#"><i class="ion-ios-cart-outline"></i><em>Products</em></a>
-            <a href="/about_us"><i class="ion-happy-outline"></i><em>About us</em></a>
-            <a href="/news"><i class="ion-ios-book-outline"></i><em>News</em></a>
-            <a href="/gallery"><i class="ion-ios-photos-outline"></i><em>Gallery</em></a>
-            <a href="/faq"><i class="ion-android-bulb"></i><em>FAQ</em></a>
-            <a href="/contact_us"><i class="ion-ios-email-outline"></i><em>Contact</em></a>
-            <a data-submenus="sub10" href="#"><i class="ion-ios-at-outline"></i><em>Connect</em></a>
+            <a  href="/"><i class="ion-ios-home-outline"></i><em>{{title_case(__('main.home'))}}</em></a>
+            <a data-submenus="sub1" href="#"><i class="ion-ios-cart-outline"></i><em>{{title_case(__('main.products'))}}</em></a>
+            <a href="/about_us"><i class="ion-happy-outline"></i><em>{{title_case(__('main.about_us'))}}</em></a>
+            <a href="/news"><i class="ion-ios-book-outline"></i><em>{{title_case(__('main.news'))}}</em></a>
+            <a href="/gallery"><i class="ion-ios-photos-outline"></i><em>{{title_case(__('main.gallery'))}}</em></a>
+            <!-- <a href="/faq"><i class="ion-android-bulb"></i><em>FAQ</em></a> -->
+            <a href="/contact_us"><i class="ion-ios-email-outline"></i><em>{{title_case(__('main.contact'))}}</em></a>
+            <a data-submenus="sub10" href="#"><i class="ion-ios-at-outline"></i><em>{{title_case(__('main.connect'))}}</em></a>
         </div>
     </div>
 
     <!-- Connect Submenus -->
     <div class="submenu submenu-light" id="sub1">
         <div class="submenu-scroll">
-            <a class="close-sidebar" href="#"><i class="ion-ios-close-empty"></i><em>Close</em></a>
+            <a class="close-sidebar" href="#"><i class="ion-ios-close-empty"></i><em>{{title_case(__('main.close'))}}</em></a>
             @foreach($product_categories as $product_category)
             <a href="/product_category/{{$product_category->slug}}"><i class="ion-ios-cart-outline"></i><em>{{title_case($product_category->name)}}</em></a>
             @endforeach
 
-            <a class="close-sidebar" href="#"><i class="ion-ios-close-empty"></i><em>Close</em></a>
+            <a class="close-sidebar" href="#"><i class="ion-ios-close-empty"></i><em>{{title_case(__('main.close'))}}</em></a>
         </div>
     </div>
     <!-- Connect Submenus -->
     <div class="submenu submenu-light" id="sub10">
         <div class="submenu-scroll">
-            <a class="close-sidebar" href="#"><i class="ion-ios-close-empty"></i><em>Close</em></a>
-            <a href="/contact_us"><i class="ion-ios-compose-outline"></i><em>Contact Form</em></a>
+            <a class="close-sidebar" href="#"><i class="ion-ios-close-empty"></i><em>{{title_case(__('main.close'))}}</em></a>
+            <a href="/contact_us"><i class="ion-ios-compose-outline"></i><em>{{title_case(__('main.contact_form'))}}</em></a>
             <a href="mailto:{{setting('contact.email')}}" onclick="(function (){
                             dataLayer.push({
                                 'event': 'productPurchase',
@@ -174,8 +174,8 @@
                                 }]
                             }}
                             });
-                            })()"><i class="ion-ios-email-outline"></i><em>Mail Us</em></a>
-            <a href="https://api.whatsapp.com/send?phone={{setting('contact.phone')}}" onclick="(function (){
+                            })()"><i class="ion-ios-email-outline"></i><em>{{title_case(__('main.mail_us'))}}</em></a>
+            <a href="https://api.whatsapp.com/send?phone={{setting('contact.phone')}}&text={{__('main.need_category')}}" onclick="(function (){
                             dataLayer.push({
                                 'event': 'productPurchase',
                                 'ecommerce': {
@@ -194,7 +194,7 @@
                             }}
                             });
                             })()"><i class="ion-social-whatsapp-outline"></i><em>Whatsapp</em></a>
-            <a class="close-sidebar" href="#"><i class="ion-ios-close-empty"></i><em>Close</em></a>
+            <a class="close-sidebar" href="#"><i class="ion-ios-close-empty"></i><em>{{title_case(__('main.close'))}}</em></a>
         </div>
     </div>
 
@@ -207,14 +207,14 @@
 
                 <div class="decoration"></div>
                 <div class="content footer-links">
-                    <h4>Useful links</h4>
-                    <a href="/"><i class="ion-home"></i> Home</a>
-                    <a href="/gallery"><i class="ion-images"></i> Gallery</a>
-                    <a href="/news"><i class="ion-ios-book"></i> News</a>
-                    <a href="/about_us"><i class="ion-ios-book-outline"></i> About Us</a>
-                    <a href="/faq"><i class="ion-help-circled"></i> FAQ</a>
-                    <a href="/contact_us"><i class="ion-android-mail"></i> Contact Us</a>
-                    <a href="/product_categories"><i class="ion-ios-cart"></i> Products</a>
+                    <h4>{{title_case(__('main.useful_links'))}}</h4>
+                    <a href="/"><i class="ion-home"></i> {{title_case(__('main.home'))}}</a>
+                    <a href="/gallery"><i class="ion-images"></i> {{title_case(__('main.gallery'))}}</a>
+                    <a href="/news"><i class="ion-ios-book"></i> {{title_case(__('main.news'))}}</a>
+                    <a href="/about_us"><i class="ion-ios-book-outline"></i> {{title_case(__('main.about_us'))}}</a>
+                    <!-- <a href="/faq"><i class="ion-help-circled"></i> FAQ</a> -->
+                    <a href="/contact_us"><i class="ion-android-mail"></i> {{title_case(__('main.contact_us'))}}</a>
+                    <a href="/product_categories"><i class="ion-ios-cart"></i> {{title_case(__('main.products'))}}</a>
                     <div class="clear"></div>
                 </div>
 
@@ -265,7 +265,7 @@
                             }}
                             });
                             })()" class="icon icon-ghost icon-round mail-color mail-bg"><i class="ion-android-mail"></i></a>
-                    <a href="https://api.whatsapp.com/send?phone={{setting('contact.phone')}}" onclick="(function (){
+                    <a href="https://api.whatsapp.com/send?phone={{setting('contact.phone')}}&text={{__('main.need_category')}}" onclick="(function (){
                             dataLayer.push({
                                 'event': 'productPurchase',
                                 'ecommerce': {
@@ -293,7 +293,7 @@
 
 
 
-    <a href="#" class="back-to-top-badge"><i class="ion-android-arrow-dropup"></i>Back to Top</a>
+    <a href="#" class="back-to-top-badge"><i class="ion-android-arrow-dropup"></i>{{title_case(__('main.back_to_top'))}}</a>
 
 </div>
 
@@ -302,6 +302,6 @@
 <script type="text/javascript" src="/scripts/custom.js"></script>
 </body>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PN982GC"
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P7L2WXC"
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->

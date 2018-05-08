@@ -64,7 +64,7 @@
 
     <div class="content product-content full-bottom">
         <div>
-            <a href="https://api.whatsapp.com/send?phone=8618538153651&text=Hello, I want to know the price of {{$product->name}}" onclick="(function (){
+            <a href="https://api.whatsapp.com/send?phone=8618538153651&text={{__('main.need_price')}}: {{$product->name}}" onclick="(function (){
                     dataLayer.push({
                     'event': 'productPurchase',
                         'ecommerce': {
@@ -82,7 +82,7 @@
                     }]
                     }}
                     });
-                    })()" class="button button-icon button-green button-round button-full button-xs no-bottom"><i class="ion-social-whatsapp"></i>Get Price Through WhatsApp Now!</a>
+                    })()" class="button button-icon button-green button-round button-full button-xs no-bottom"><i class="ion-social-whatsapp"></i>{{title_case(__('main.get_price_through_whatsApp'))}}</a>
         </div>
         <div class="clear"></div>
 
@@ -93,7 +93,7 @@
         </div>
         <div class="decoration"></div>
         <div>
-            <a href="https://api.whatsapp.com/send?phone=8618538153651&text=Hello, I want to know the price of {{$product->name}}" onclick="(function (){
+            <a href="https://api.whatsapp.com/send?phone=8618538153651&text={{__('main.need_price')}}: {{$product->name}}" onclick="(function (){
                     dataLayer.push({
                     'event': 'productPurchase',
                     'ecommerce': {
@@ -111,13 +111,13 @@
                     }]
                     }}
                     });
-                    })()" class="button button-icon button-green button-round button-full button-xs no-bottom"><i class="ion-social-whatsapp"></i>Get Price Through WhatsApp</a>
+                    })()" class="button button-icon button-green button-round button-full button-xs no-bottom"><i class="ion-social-whatsapp"></i>{{title_case(__('main.get_price_through_whatsApp'))}}</a>
         </div>
         <div class="clear"></div>
         <div class="decoration"></div>
 
         <div class="store-product-separator">
-            <h5>Aditional Information</h5>
+            <h5>{{title_case(__('main.aditional_information'))}}</h5>
         </div>
 
         <div class="store-product-notes full-bottom">
@@ -128,7 +128,7 @@
         <div class="decoration"></div>
 
         <div class="store-product-separator">
-            <h5>Similar Product</h5>
+            <h5>{{title_case(__('main.similar_products'))}}</h5>
             {{--<a href="#">See All</a>--}}
         </div>
 
@@ -160,9 +160,9 @@
             </div>
         </div>
         <div class="decoration no-bottom"></div>
-        <a href="/faq" class="default-link line-link">FAQ <i class="ion-ios-arrow-right"></i></a>
-        <a href="/contact_us" class="default-link line-link">Contact Us <i class="ion-ios-arrow-right"></i></a>
-        <a href="https://api.whatsapp.com/send?phone=8618538153651&text=Hello, I want to know the price of {{$product->name}}" onclick="(function (){
+        {{--<a href="/faq" class="default-link line-link">FAQ <i class="ion-ios-arrow-right"></i></a>--}}
+        <a href="/contact_us" class="default-link line-link"> {{title_case(__('main.contact_us'))}}<i class="ion-ios-arrow-right"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=8618538153651&text={{__('main.need_price')}}: {{$product->name}}" onclick="(function (){
                 dataLayer.push({
                 'event': 'productPurchase',
                 'ecommerce': {
@@ -180,6 +180,6 @@
                 }]
                 }}
                 });
-                })()" class="default-link line-link">Get Price Through WhatsApp Now!<i class="ion-ios-arrow-right"></i></a>
+                })()" class="default-link line-link"> {{title_case(__('main.get_price_through_whatsApp'))}}!<i class="ion-ios-arrow-right"></i></a>
     </div>
 @endsection

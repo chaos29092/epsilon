@@ -19,9 +19,9 @@
     <div class="content-center">
         <div class="page-404">
             <h1>404</h1>
-            <h2>Page Not Found</h2>
+            <h2>{{title_case(__('main.page_not_found'))}}</h2>
             <p>
-                Sorry, nothing to see here, try the homepage and go from there!
+                {{title_case(__('main.page_404_content'))}}!
             </p>
             <a href="/" class="scale-hover color-gray-dark border-gray-dark"><i class="ion-android-home"></i></a>
         </div>

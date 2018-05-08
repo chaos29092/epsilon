@@ -35,6 +35,6 @@
             <div class="decoration"></div>
             @endforeach
         </div>
-        <a href="{{$news->nextPageUrl()}}" class="load-more-thumbs button button-full button-green">Next Page</a>
+        <a href="{{$news->nextPageUrl()}}" class="load-more-thumbs button button-full button-green">{{title_case(__('main.next_page'))}}</a>
     </div>
 @endsection

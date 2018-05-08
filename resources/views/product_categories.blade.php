@@ -52,7 +52,7 @@
                 <a href="/product_category/{{$product_category->slug}}"><img src="{{Voyager::image($product_category->image)}}" alt="{{$product_category->name}}"></a>
                 <strong>{{title_case($product_category->name)}}</strong>
             </div>
-                @if($loop->iteration%2 == 0)
+            @if($loop->iteration%2 == 0)
                     <div class="clear"></div>
                 @endif
             @endforeach
@@ -62,7 +62,7 @@
         <div class="decoration"></div>
 
         <div class="container heading-style">
-            <h4 class="heading-title">Hot Products</h4>
+            <h4 class="heading-title">{{title_case(__('main.hot_products'))}}</h4>
             <i class="ion-ios-cart heading-icon"></i>
             <div class="line bg-black"></div>
         </div>
