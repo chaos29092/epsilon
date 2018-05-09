@@ -7,6 +7,8 @@ return [
     'about_us' => 'empresa',
     'news' => 'Noticias',
     'gallery' => 'Galería',
+    'reviews' => 'Opiniones',
+    'customer_reviews' => 'Opiniones de clientes',
     'contact' => 'contacto',
     'contact_us' => 'Contáctenos',
     'connect' => 'conectar',

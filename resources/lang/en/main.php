@@ -7,6 +7,8 @@ return [
     'about_us' => 'about us',
     'news' => 'news',
     'gallery' => 'Gallery',
+    'reviews' => 'Reviews',
+    'customer_reviews' => 'Customer Reviews',
     'contact' => 'contact',
     'contact_us' => 'contact us',
     'connect' => 'connect',

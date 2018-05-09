@@ -185,6 +185,7 @@
         <div class="decoration no-bottom"></div>
         {{--<a href="/faq" class="default-link line-link">FAQ <i class="ion-ios-arrow-right"></i></a>--}}
         <a href="/contact_us" class="default-link line-link"> {{title_case(__('main.contact_us'))}}<i class="ion-ios-arrow-right"></i></a>
+        <a href="/gallery" class="default-link line-link"> {{title_case(__('main.customer_reviews'))}}<i class="ion-ios-arrow-right"></i></a>
         <a href="https://api.whatsapp.com/send?phone=8618538153651&text={{__('main.need_price')}}: {{$product->name}}" onclick="(function (){
                 dataLayer.push({
                 'event': 'productPurchase',
