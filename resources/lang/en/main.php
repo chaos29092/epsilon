@@ -3,6 +3,7 @@
 return [
     'home' => 'home',
     'products' => 'products',
+    'all_products' => 'All Products',
     'about_us' => 'about us',
     'news' => 'news',
     'gallery' => 'Gallery',

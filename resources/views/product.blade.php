@@ -126,6 +126,29 @@
         </div>
 
         <div class="decoration"></div>
+        <div>
+            <a href="https://api.whatsapp.com/send?phone=8618538153651&text={{__('main.need_price')}}: {{$product->name}}" onclick="(function (){
+                    dataLayer.push({
+                    'event': 'productPurchase',
+                    'ecommerce': {
+                    'purchase': {
+                    'actionField': {
+                    'id': uuidv4(),
+                    'affiliation': 'Product Whatsapp 3'
+                    },
+                    'products': [{
+                    'name': '{{$product->name}}',
+                    'id': '{{$product->product_code}}',
+                    'price': '{{$product->price}}',
+                    'category': '{{$product->product_category_id}}',
+                    'quantity': 1
+                    }]
+                    }}
+                    });
+                    })()" class="button button-icon button-green button-round button-full button-xs no-bottom"><i class="ion-social-whatsapp"></i>{{title_case(__('main.get_price_through_whatsApp'))}}</a>
+        </div>
+        <div class="clear"></div>
+        <div class="decoration"></div>
 
         <div class="store-product-separator">
             <h5>{{title_case(__('main.similar_products'))}}</h5>
@@ -169,7 +192,7 @@
                 'purchase': {
                 'actionField': {
                 'id': uuidv4(),
-                'affiliation': 'Product Whatsapp 3'
+                'affiliation': 'Product Whatsapp 4'
                 },
                 'products': [{
                 'name': '{{$product->name}}',

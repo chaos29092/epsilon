@@ -3,6 +3,7 @@
 return [
     'home' => 'Índice',
     'products' => 'productos',
+    'all_products' => 'Todos los productos',
     'about_us' => 'empresa',
     'news' => 'Noticias',
     'gallery' => 'Galería',

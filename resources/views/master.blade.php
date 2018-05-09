@@ -105,7 +105,7 @@
             <em class="line-2"></em>
             <em class="line-3"></em>
         </a>
-        <a href="https://api.whatsapp.com/send?phone={{setting('contact.phone')}}&text={{__('main.need_category')}}" onclick="(function (){
+        <a href="https://api.whatsapp.com/send?phone={{setting('contact.phone')}}&text={{__('main.need_price')}}: @if(isset($related_products)){{$product->name}} @elseif(isset($products)){{$product_category->name}} @else All Products @endif" onclick="(function (){
                             dataLayer.push({
                                 'event': 'productPurchase',
                                 'ecommerce': {
@@ -175,7 +175,7 @@
                             }}
                             });
                             })()"><i class="ion-ios-email-outline"></i><em>{{title_case(__('main.mail_us'))}}</em></a>
-            <a href="https://api.whatsapp.com/send?phone={{setting('contact.phone')}}&text={{__('main.need_category')}}" onclick="(function (){
+            <a href="https://api.whatsapp.com/send?phone={{setting('contact.phone')}}&text={{__('main.need_price')}}: @if(isset($related_products)){{$product->name}} @elseif(isset($products)){{$product_category->name}} @else All Products @endif" onclick="(function (){
                             dataLayer.push({
                                 'event': 'productPurchase',
                                 'ecommerce': {
@@ -227,7 +227,7 @@
                 </p>
                 <div class="footer-socials center-text">
                     <a href="https://m.me/{{setting('contact.facebook_id')}}" class="icon icon-round icon-ghost facebook-bg"><i class="ion-social-facebook"></i></a>
-                    <a href="tel:{{setting('contact.phone')}}" onclick="(function (){
+                    <a href="https://api.whatsapp.com/send?phone={{setting('contact.phone')}}&text={{__('main.need_price')}}: @if(isset($related_products)){{$product->name}} @elseif(isset($products)){{$product_category->name}} @else All Products @endif" onclick="(function (){
                             dataLayer.push({
                                 'event': 'productPurchase',
                                 'ecommerce': {
@@ -265,7 +265,7 @@
                             }}
                             });
                             })()" class="icon icon-ghost icon-round mail-color mail-bg"><i class="ion-android-mail"></i></a>
-                    <a href="https://api.whatsapp.com/send?phone={{setting('contact.phone')}}&text={{__('main.need_category')}}" onclick="(function (){
+                    <a href="https://api.whatsapp.com/send?phone={{setting('contact.phone')}}&text={{__('main.need_price')}}: @if(isset($related_products)){{$product->name}} @elseif(isset($products)){{$product_category->name}} @else All Products @endif" onclick="(function (){
                             dataLayer.push({
                                 'event': 'productPurchase',
                                 'ecommerce': {
