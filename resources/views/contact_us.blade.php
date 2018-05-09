@@ -140,7 +140,25 @@
                                 <textarea name="message" class="contactTextarea requiredField" id="contactMessageTextarea"></textarea>
                             </div>
                             <div class="formSubmitButtonErrorsWrap contactFormButton">
-                                <input type="submit" class="buttonWrap button button-green contactSubmitButton" id="contactSubmitButton" value="{{title_case(__('main.send_message'))}}" data-formId="contactForm"/>
+                                <input onclick="(function (){
+                                        dataLayer.push({
+                                        'event': 'productPurchase',
+                                        'ecommerce': {
+                                        'purchase': {
+                                        'actionField': {
+                                        'id': uuidv4(),
+                                        'affiliation': 'contact form'
+                                        },
+                                        'products': [{
+                                        'name': '{{$product->name}}',
+                                        'id': '{{$product->product_code}}',
+                                        'price': '{{$product->price}}',
+                                        'category': '{{$product->product_category_id}}',
+                                        'quantity': 1
+                                        }]
+                                        }}
+                                        });
+                                        })()" type="submit" class="buttonWrap button button-green contactSubmitButton" id="contactSubmitButton" value="{{title_case(__('main.send_message'))}}" data-formId="contactForm"/>
                             </div>
                         </fieldset>
                     </form>
