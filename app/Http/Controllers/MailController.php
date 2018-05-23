@@ -28,7 +28,7 @@ class MailController extends Controller
 
         $order->save();
 
-        Mail::to(env('Mail_TO','chaos29092@gmail.com'))->send(new OrderShipped($order));
+        Mail::to(env('MAIL_TO','chaos29092@gmail.com'))->cc(env('MAIL_CC','chaos29092@gmail.com'))->send(new OrderShipped($order));
 //      use queue
 //        Mail::to('chaos29092@gmail.com')->queue(new OrderShipped($order));
     }
