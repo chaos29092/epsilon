@@ -56,7 +56,7 @@
                     'event': 'productClick',
                     'ecommerce': {
                     'click': {
-                    'actionField': {'list': 'Products Category'},
+                    'actionField': {'list': 'Category-{{$product_category->name}}'},
                     'products': [{
                     'name': '{{$product->name}}',
                     'id': '{{$product->product_code}}',
