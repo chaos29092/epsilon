@@ -77,7 +77,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-    <title>@yield('seo_title') - {{setting('index.company_name')}}</title>
+    <title>@yield('seo_title') - {{title_case(setting('index.company_name'))}}</title>
     <meta name="description" content="@yield('meta_description')">
     <meta name="keywords" content="@yield('meta_keywords')">
 
@@ -209,12 +209,12 @@
                 <div class="content footer-links">
                     <h4>{{title_case(__('main.useful_links'))}}</h4>
                     <a href="/"><i class="ion-home"></i> {{title_case(__('main.home'))}}</a>
+                    <a href="/product_categories"><i class="ion-ios-cart"></i> {{title_case(__('main.products'))}}</a>
                     <a href="/gallery"><i class="ion-images"></i> {{title_case(__('main.gallery'))}}</a>
                     <a href="/news"><i class="ion-ios-book"></i> {{title_case(__('main.news'))}}</a>
                     <a href="/about_us"><i class="ion-ios-book-outline"></i> {{title_case(__('main.about_us'))}}</a>
                     <!-- <a href="/faq"><i class="ion-help-circled"></i> FAQ</a> -->
                     <a href="/contact_us"><i class="ion-android-mail"></i> {{title_case(__('main.contact_us'))}}</a>
-                    <a href="/product_categories"><i class="ion-ios-cart"></i> {{title_case(__('main.products'))}}</a>
                     <div class="clear"></div>
                 </div>
 

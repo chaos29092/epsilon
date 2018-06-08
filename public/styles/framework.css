@@ -5999,7 +5999,7 @@ calendar*{display:block; overflow:hidden;}
 }
 
 .store-items img{display:block; width:100%;}
-.store-item:nth-last-child(even) { margin-left:4%;}
+.store-item { margin-left:2%;}
 
 .store-item strong{
     display:block;
