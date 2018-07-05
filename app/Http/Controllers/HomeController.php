@@ -48,7 +48,7 @@ class HomeController extends Controller
     public function news()
     {
         $page = page_cache(5);
-        $news = Article::where('category_id',1)->orderBy('published_at', 'desc')->select('category_id','name','slug','excerpt','image','featured')->paginate(12);
+        $news = Article::where('category_id',1)->where('published_at','<',Carbon::now())->orderBy('published_at', 'desc')->select('category_id','name','slug','excerpt','image','featured')->paginate(12);
         return view('news',compact('page','news'));
     }
 
